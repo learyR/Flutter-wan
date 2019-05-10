@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import 'package:flutter_wan/redux/ReduxTestPageWidget.dart';
 import 'package:flutter_wan/test/TestApp.dart';
+import 'package:redux/redux.dart';
 
+import 'common/CommonState.dart';
+import 'model/User.dart';
+import 'redux/UserReducer.dart';
 import 'test/TabBarBottomPageWidget.dart';
 import 'test/TabBarPageWidget.dart';
 
@@ -8,15 +14,28 @@ void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
+  static final String sName = "/";
+
+  final store = new Store<CommonState>(appReducer,
+      initialState: new CommonState(
+        userInfo: new User("leary", 18, "男", 178),
+      ));
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return new StoreProvider(
+      store: store,
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: MyHomePage(),
       ),
-      home: MyHomePage(),
     );
+//    return MaterialApp(
+//
+//    );
   }
 }
 
@@ -63,9 +82,31 @@ class Collom extends StatelessWidget {
 //                    new MaterialPageRoute(
 //                        builder: (context) => new TestMainPage(list: datas)));
             },
-            child: new Text("跳转到下一个页面"))
+            child: new Text("跳转到下一个页面")),
+        new FlatButton(
+            onPressed: () {
+              Navigator.push(context, new MaterialPageRoute(builder: (context) {
+                return new ReduxTestPage();
+              }));
+            },
+            child: new Text("Redux测试")),
+        new FlatButton(
+            onPressed: () {
+              _getStore(context)?.dispatch(
+                  new UpdateUserAction(new User("Hello World", 25, "女", 180)));
+            },
+            child: new Text("数据修改"),
+            color: Colors.blue),
       ],
     );
+  }
+
+  Store<CommonState> _getStore(BuildContext context) {
+    if (context == null) {
+      print("YYState null");
+      return null;
+    }
+    return StoreProvider.of(context);
   }
 
   _navigateAndDispalySelection(BuildContext context) async {
