@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import 'package:flutter_wan/app.dart';
 import 'package:flutter_wan/redux/ReduxTestPageWidget.dart';
 import 'package:flutter_wan/test/TestApp.dart';
 import 'package:redux/redux.dart';
@@ -97,6 +98,13 @@ class Collom extends StatelessWidget {
             },
             child: new Text("数据修改"),
             color: Colors.blue),
+        new FlatButton(
+            onPressed: () {
+              Navigator.push(context, new MaterialPageRoute(builder: (context) {
+                return new FishReduxTest();
+              }));
+            },
+            child: new Text("Fish ReduxDemo")),
       ],
     );
   }
