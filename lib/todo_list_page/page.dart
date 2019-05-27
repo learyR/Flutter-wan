@@ -7,7 +7,8 @@ import 'report_component/component.dart';
 import 'state.dart';
 import 'view.dart';
 
-class ToDoListPage extends Page<ToDoListState, Map<String, dynamic>> {
+class ToDoListPage extends Page<ToDoListState, Map<String, dynamic>>
+    with PrivateReducerMixin<ToDoListState> {
   ToDoListPage()
       : super(
           initState: initState,
@@ -17,7 +18,8 @@ class ToDoListPage extends Page<ToDoListState, Map<String, dynamic>> {
           dependencies: Dependencies<ToDoListState>(
               adapter: ToDoListAdapter(),
               slots: <String, Dependent<ToDoListState>>{
-                'report': ReportConnector() + ReportComponent()
+                'report': ReportComponent().asDependent(ReportConnector()),
+                'report_one': ReportComponent().asDependent(ReportConnector()),
               }),
           middleware: <Middleware<ToDoListState>>[
             logMiddleware(tag: 'ToDoListPage')

@@ -4,10 +4,13 @@ import 'package:flutter_wan/todo_list_page/report_component/state.dart';
 
 class ToDoListState implements Cloneable<ToDoListState> {
   List<ToDoState> toDos;
+  String title = 'qoo';
 
   @override
   ToDoListState clone() {
-    return ToDoListState()..toDos = toDos;
+    return ToDoListState()
+      ..toDos = toDos
+      ..title = title;
   }
 }
 
@@ -26,5 +29,11 @@ class ReportConnector extends ConnOp<ToDoListState, ReportState> {
   }
 
   @override
-  void set(ToDoListState state, ReportState subState) {}
+  ToDoListState set(ToDoListState state, ReportState subState) {
+    if (subState == 1) {
+      var total = subState.total;
+      return state.clone()..title = '总共 + $total';
+    }
+    return state;
+  }
 }

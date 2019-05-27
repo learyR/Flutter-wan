@@ -10,13 +10,14 @@ Widget buildView(
 
   return Scaffold(
     appBar: AppBar(
-      title: Text('ToDoList'),
+      title: Text(state.title),
       automaticallyImplyLeading: true,
     ),
     body: Container(
       child: Column(
         children: <Widget>[
-          viewService.buildComponent('report'),
+          Container(child: viewService.buildComponent('report')),
+          Container(child: viewService.buildComponent('report_one')),
           Expanded(
             child: ListView.builder(
                 itemCount: adapter.itemCount, itemBuilder: adapter.itemBuilder),

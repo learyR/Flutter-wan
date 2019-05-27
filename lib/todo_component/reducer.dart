@@ -23,7 +23,9 @@ ToDoState _markDown(ToDoState state, Action action) {
 ToDoState _edit(ToDoState state, Action action) {
   final ToDoState toDo = action.payload;
   if (state.uniqueId == toDo.uniqueId) {
-    return state.clone()..isDone = state.isDone;
+    return state.clone()
+      ..title = toDo.title
+      ..desc = toDo.desc;
   }
   return state;
 }

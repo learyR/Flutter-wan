@@ -10,6 +10,7 @@ import 'model/User.dart';
 import 'redux/UserReducer.dart';
 import 'test/TabBarBottomPageWidget.dart';
 import 'test/TabBarPageWidget.dart';
+import 'test/TextFieldTest.dart';
 
 void main() => runApp(MyApp());
 
@@ -105,6 +106,13 @@ class Collom extends StatelessWidget {
               }));
             },
             child: new Text("Fish ReduxDemo")),
+        new FlatButton(
+            onPressed: () {
+              Navigator.push(context, new MaterialPageRoute(builder: (context) {
+                return new EditTextElement();
+              }));
+            },
+            child: new Text("输入框测试")),
       ],
     );
   }

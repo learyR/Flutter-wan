@@ -89,11 +89,11 @@ class _TabBarPageFirstState extends State<TabBarPageFirst>
 
   Future<Null> _handleRefresh() async {
     if (this.mounted) {
-//      setState(() {
-//        _suggestions.clear();
-//        _suggestions.addAll(generateWordPairsRefresh());
-//        return null;
-//      });
+      setState(() {
+        _suggestions.clear();
+        _suggestions.addAll(generateWordPairsRefresh());
+        return null;
+      });
     }
   }
 
