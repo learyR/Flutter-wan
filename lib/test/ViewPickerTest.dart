@@ -1,0 +1,110 @@
+import 'dart:io';
+
+import 'package:flutter/material.dart';
+import 'package:image_cropper/image_cropper.dart';
+import 'package:image_picker/image_picker.dart';
+
+class ViewPickerTest extends StatefulWidget {
+  @override
+  ViewPickerTestState createState() => new ViewPickerTestState();
+}
+
+class ViewPickerTestState extends State<ViewPickerTest> {
+  Future<File> _imageFile;
+
+  void getImage(ImageSource source) {
+    ImagePicker.pickImage(source: source).then((File value) {
+      setState(() {
+        _imageFile = _cropImage(value);
+      });
+    });
+  }
+
+  Future<File> _cropImage(File imageFile) async {
+    return await ImageCropper.cropImage(
+        sourcePath: imageFile.path,
+        ratioX: 1.0,
+        ratioY: 1.0,
+        maxHeight: 512,
+        maxWidth: 512);
+  }
+
+  Widget _previewImage() {
+    return FutureBuilder<File>(
+        future: _imageFile,
+        builder: (BuildContext context, AsyncSnapshot<File> snapshot) {
+          if (snapshot.connectionState == ConnectionState.done &&
+              snapshot.data != null) {
+            return Container(
+              width: 75.0,
+              height: 75.0,
+              child: ClipOval(
+                clipBehavior: Clip.antiAliasWithSaveLayer,
+                child: Image.file(
+                  snapshot.data,
+                  fit: BoxFit.fitWidth,
+                ),
+              ),
+            );
+          } else if (snapshot.error != null) {
+            //error
+            return Image.asset('assets/images/mine_default_portrait.png');
+          } else {
+            return Image.asset('assets/images/mine_default_portrait.png');
+          }
+        });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Image Picker Example'),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => getImage(ImageSource.camera),
+        tooltip: 'Pick Image',
+        child: Icon(Icons.add_a_photo),
+      ),
+      body: Center(
+        child: Stack(
+          children: <Widget>[
+            //头像
+            _previewImage(),
+            //添加头像
+            Positioned(
+                bottom: 2.0,
+                right: 2.0,
+                child: GestureDetector(
+                  onTap: () => getImage(ImageSource.gallery),
+                  child: Padding(
+                      padding: const EdgeInsets.only(top: 5.0, left: 5.0),
+                      child:
+                          Image.asset('assets/images/icon_portrait_add.png')),
+                ))
+          ],
+        ),
+      ),
+    );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
+  @override
+  void didUpdateWidget(ViewPickerTest oldWidget) {
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+  }
+}

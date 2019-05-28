@@ -11,6 +11,7 @@ import 'redux/UserReducer.dart';
 import 'test/TabBarBottomPageWidget.dart';
 import 'test/TabBarPageWidget.dart';
 import 'test/TextFieldTest.dart';
+import 'test/ViewPickerTest.dart';
 
 void main() => runApp(MyApp());
 
@@ -113,6 +114,13 @@ class Collom extends StatelessWidget {
               }));
             },
             child: new Text("输入框测试")),
+        new FlatButton(
+            onPressed: () {
+              Navigator.push(context, new MaterialPageRoute(builder: (context) {
+                return new ViewPickerTest();
+              }));
+            },
+            child: new Text("调用相机插件")),
       ],
     );
   }
