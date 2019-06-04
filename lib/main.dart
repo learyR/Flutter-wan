@@ -8,6 +8,7 @@ import 'package:redux/redux.dart';
 import 'common/CommonState.dart';
 import 'model/User.dart';
 import 'redux/UserReducer.dart';
+import 'test/PopupWindowTest.dart';
 import 'test/TabBarBottomPageWidget.dart';
 import 'test/TabBarPageWidget.dart';
 import 'test/TextFieldTest.dart';
@@ -121,6 +122,11 @@ class Collom extends StatelessWidget {
               }));
             },
             child: new Text("调用相机插件")),
+        FlatButton(
+          onPressed: () => Navigator.push(context,
+              MaterialPageRoute(builder: (context) => new PopupWindowTest())),
+          child: Text('popuWindowTest'),
+        ),
       ],
     );
   }

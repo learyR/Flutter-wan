@@ -61,10 +61,36 @@ class ViewPickerTestState extends State<ViewPickerTest> {
       appBar: AppBar(
         title: Text('Image Picker Example'),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => getImage(ImageSource.camera),
-        tooltip: 'Pick Image',
-        child: Icon(Icons.add_a_photo),
+      floatingActionButton: new FloatingActionButton(
+        onPressed: () {
+          showModalBottomSheet(
+              context: context,
+              builder: (BuildContext context) {
+                return new Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    new ListTile(
+                      leading: new Icon(Icons.photo_camera),
+                      title: new Text("Camera"),
+                      onTap: () async {
+                        getImage(ImageSource.camera);
+                        Navigator.pop(context);
+                      },
+                    ),
+                    new ListTile(
+                      leading: new Icon(Icons.photo_library),
+                      title: new Text("Gallery"),
+                      onTap: () async {
+                        getImage(ImageSource.gallery);
+                        Navigator.pop(context);
+                      },
+                    ),
+                  ],
+                );
+              });
+        },
+        foregroundColor: Colors.white,
+        child: Text('点我'),
       ),
       body: Center(
         child: Stack(

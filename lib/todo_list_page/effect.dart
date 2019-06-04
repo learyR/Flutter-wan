@@ -41,7 +41,8 @@ void _init(Action action, Context<ToDoListState> ctx) {
     ToDoState(
       uniqueId: '2',
       title: 'How Fish Redux',
-      desc: 'Learn how to use Fish Redux in a flutter application.',
+      desc:
+          'Learn how to use Fish Redux in a flutter application.\nHow Fish Redux\nHow Fish Redux',
       isDone: false,
     )
   ];
