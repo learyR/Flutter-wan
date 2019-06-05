@@ -14,8 +14,16 @@ class PopupWindowTestState extends State<PopupWindowTest> {
           title: new Text('PopupWindowTest'),
         ),
         body: Center(
-          child: PopupWindowComponent(
-            child: Icon(Icons.visibility),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              PopupWindowComponent(
+                child: Icon(Icons.visibility),
+              ),
+              PopupWindowComponent(
+                child: Icon(Icons.add),
+              ),
+            ],
           ),
         ));
   }

@@ -20,9 +20,12 @@ class _ToDoListConnector extends ConnOp<ToDoListState, List<ItemBean>> {
   @override
   List<ItemBean> get(ToDoListState state) {
     if (state.toDos?.isNotEmpty == true) {
-      return state.toDos
-          .map<ItemBean>((ToDoState data) => ItemBean('toDo', data))
-          .toList(growable: true);
+      List<ItemBean> list = <ItemBean>[];
+      list.addAll(state.toDos.map<ItemBean>((data) {
+        return ItemBean('toDo', data);
+      }).toList(growable: true));
+
+      return list;
     } else {
       return <ItemBean>[];
     }
@@ -32,7 +35,7 @@ class _ToDoListConnector extends ConnOp<ToDoListState, List<ItemBean>> {
   void set(ToDoListState state, List<ItemBean> items) {
     if (items?.isNotEmpty == true) {
       state.toDos = List<ToDoState>.from(
-          items.map<ToDoState>((ItemBean bean) => bean.data).toList());
+          items.map((ItemBean bean) => bean.data).toList());
     } else {
       state.toDos = <ToDoState>[];
     }

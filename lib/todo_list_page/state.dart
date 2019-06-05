@@ -5,12 +5,14 @@ import 'package:flutter_wan/todo_list_page/report_component/state.dart';
 class ToDoListState implements Cloneable<ToDoListState> {
   List<ToDoState> toDos;
   String title = 'qoo';
+  ReportState reportState;
 
   @override
   ToDoListState clone() {
     return ToDoListState()
       ..toDos = toDos
-      ..title = title;
+      ..title = title
+      ..reportState = reportState;
   }
 }
 
