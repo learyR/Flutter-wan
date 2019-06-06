@@ -33,7 +33,7 @@ class PopupWindowComponent extends StatelessWidget {
       child: child,
       onLongPress: () => Navigator.push(
             context,
-            PopRoute(
+            CustomRoute(
               child: _buildContainer(context),
             ),
           ),
@@ -172,11 +172,10 @@ class _PositionDelegate extends SingleChildLayoutDelegate {
 }
 
 ///参考popMenu
-class PopRoute extends PopupRoute {
-  final Duration _duration = Duration(milliseconds: 300);
+class CustomRoute extends PopupRoute {
   Widget child;
 
-  PopRoute({@required this.child});
+  CustomRoute({@required this.child});
 
   @override
   Color get barrierColor => null;
@@ -194,5 +193,5 @@ class PopRoute extends PopupRoute {
   }
 
   @override
-  Duration get transitionDuration => _duration;
+  Duration get transitionDuration => Duration(milliseconds: 200);
 }
