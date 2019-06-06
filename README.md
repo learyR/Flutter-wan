@@ -21,4 +21,4 @@ samples, guidance on mobile development, and a full API reference.
 ### flutter 输入框设置
 ### 相机相册 图片裁剪 测试案例
 [相册][相机][裁剪]
-### 自定义可跟随控件的弹窗效果[效果图](https://upload-images.jianshu.io/upload_images/6431170-b0ea552b0e30856b.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/757/format/webp)
+### 自定义可跟随控件的弹窗效果![效果图](https://upload-images.jianshu.io/upload_images/6431170-b0ea552b0e30856b.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/757/format/webp)
