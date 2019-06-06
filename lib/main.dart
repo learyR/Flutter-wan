@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:flutter_wan/app.dart';
 import 'package:flutter_wan/redux/ReduxTestPageWidget.dart';
+import 'package:flutter_wan/test/CoorDinatorLayoutTest.dart';
 import 'package:flutter_wan/test/TestApp.dart';
 import 'package:redux/redux.dart';
 
@@ -126,6 +127,13 @@ class Collom extends StatelessWidget {
           onPressed: () => Navigator.push(context,
               MaterialPageRoute(builder: (context) => new PopupWindowTest())),
           child: Text('popuWindowTest'),
+        ),
+        FlatButton(
+          onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => new CoordinatorLayoutTestPage())),
+          child: Text('CoordinatorLayoutTest'),
         ),
       ],
     );
