@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_wan/res/LocalRes.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -48,9 +49,9 @@ class ViewPickerTestState extends State<ViewPickerTest> {
             );
           } else if (snapshot.error != null) {
             //error
-            return Image.asset('assets/images/mine_default_portrait.png');
+            return Image.asset(LocalDrawable.mine_default_portrait);
           } else {
-            return Image.asset('assets/images/mine_default_portrait.png');
+            return Image.asset(LocalDrawable.mine_default_portrait);
           }
         });
   }
