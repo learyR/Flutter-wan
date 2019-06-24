@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:flutter_wan/app.dart';
 import 'package:flutter_wan/redux/ReduxTestPageWidget.dart';
 import 'package:flutter_wan/test/CoorDinatorLayoutTest.dart';
 import 'package:flutter_wan/test/TestApp.dart';
+import 'package:flutter_wan/video_test/VideoTestPage.dart';
 import 'package:redux/redux.dart';
 
 import 'common/CommonState.dart';
@@ -15,7 +17,12 @@ import 'test/TabBarPageWidget.dart';
 import 'test/TextFieldTest.dart';
 import 'test/ViewPickerTest.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((_) {
+    runApp(MyApp());
+  });
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -38,6 +45,7 @@ class MyApp extends StatelessWidget {
         home: MyHomePage(),
       ),
     );
+
 //    return MaterialApp(
 //
 //    );
@@ -134,6 +142,11 @@ class Collom extends StatelessWidget {
               MaterialPageRoute(
                   builder: (context) => new CoordinatorLayoutTestPage())),
           child: Text('CoordinatorLayoutTest'),
+        ),
+        FlatButton(
+          onPressed: () => Navigator.push(context,
+              MaterialPageRoute(builder: (context) => new VideoTestPage())),
+          child: Text('视频播放测试'),
         ),
       ],
     );
