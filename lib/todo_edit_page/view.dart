@@ -8,6 +8,7 @@ Widget buildView(
     ToDoEditState state, Dispatch dispatch, ViewService viewService) {
   return Scaffold(
     appBar: AppBar(
+      backgroundColor: state.themeColor,
       title: const Text("toDo"),
     ),
 

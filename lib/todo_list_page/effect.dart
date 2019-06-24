@@ -1,5 +1,7 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_wan/global_store/action.dart';
+import 'package:flutter_wan/global_store/store.dart';
 import 'package:flutter_wan/todo_component/state.dart';
 
 import 'action.dart';
@@ -10,6 +12,7 @@ Effect<ToDoListState> buildEffect() {
   return combineEffects(<Object, Effect<ToDoListState>>{
     Lifecycle.initState: _init,
     ToDoListAction.onAdd: _onAdd,
+    ToDoListAction.onChangeTheme: _onChangeTheme
   });
 }
 
@@ -47,4 +50,9 @@ void _init(Action action, Context<ToDoListState> ctx) {
     )
   ];
   ctx.dispatch(ToDoListActionCreator.initToDosAction(initToDos));
+}
+
+void _onChangeTheme(Action action, Context<ToDoListState> ctx) {
+  //change global data
+  GlobalStore.store.dispatch(GlobalActionCreator.onchangeThemeColor());
 }

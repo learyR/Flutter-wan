@@ -1,8 +1,8 @@
-import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_wan/global_store/state.dart';
 import 'package:flutter_wan/todo_component/state.dart';
 
-class ToDoEditState implements Cloneable<ToDoEditState> {
+class ToDoEditState implements GlobalBaseState<ToDoEditState> {
   ToDoState toDo;
   TextEditingController nameEditController;
   TextEditingController descEditController;
@@ -16,8 +16,12 @@ class ToDoEditState implements Cloneable<ToDoEditState> {
       ..descEditController = descEditController
       ..focusNodeName = focusNodeName
       ..focusNodeDesc = focusNodeDesc
-      ..toDo = toDo;
+      ..toDo = toDo
+      ..themeColor = themeColor;
   }
+
+  @override
+  Color themeColor;
 }
 
 ToDoEditState initState(ToDoState args) {

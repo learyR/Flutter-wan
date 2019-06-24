@@ -1,8 +1,11 @@
+import 'dart:ui';
+
 import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter_wan/global_store/state.dart';
 import 'package:flutter_wan/todo_component/state.dart';
 import 'package:flutter_wan/todo_list_page/report_component/state.dart';
 
-class ToDoListState implements Cloneable<ToDoListState> {
+class ToDoListState implements GlobalBaseState<ToDoListState> {
   List<ToDoState> toDos;
   String title = 'qoo';
   ReportState reportState;
@@ -12,8 +15,12 @@ class ToDoListState implements Cloneable<ToDoListState> {
     return ToDoListState()
       ..toDos = toDos
       ..title = title
-      ..reportState = reportState;
+      ..reportState = reportState
+      ..themeColor = themeColor;
   }
+
+  @override
+  Color themeColor;
 }
 
 ToDoListState initState(Map<String, dynamic> args) {
