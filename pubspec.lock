@@ -144,6 +144,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.0.0"
+  rongcloud_im_plugin:
+    dependency: "direct main"
+    description:
+      name: rongcloud_im_plugin
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.0.17"
   screen:
     dependency: transitive
     description:

@@ -178,7 +178,7 @@ class _MyMaterialControlsState extends State<MyMaterialControls> {
               child: GestureDetector(
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Theme.of(context).dialogBackgroundColor,
+                    color: Colors.grey[800],
                     borderRadius: BorderRadius.circular(48.0),
                   ),
                   child: Padding(
