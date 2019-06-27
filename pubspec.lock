@@ -198,6 +198,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.0.4"
+  sy_flutter_qiniu_storage:
+    dependency: "direct main"
+    description:
+      name: sy_flutter_qiniu_storage
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.1.4"
   term_glyph:
     dependency: transitive
     description:
