@@ -15,6 +15,7 @@ import 'package:rongcloud_im_plugin/rc_common_define.dart';
 import 'package:rongcloud_im_plugin/rongcloud_im_plugin.dart';
 
 import 'common/CommonState.dart';
+import 'custom_page_controller/CustomPageController.dart';
 import 'model/User.dart';
 import 'redux/UserReducer.dart';
 import 'test/PopupWindowTest.dart';
@@ -58,7 +59,7 @@ class MyAppState extends State<MyApp> {
     String userId = 'leary';
     //通过用户 id 生成的对应融云 token
     String RongIMToken =
-        'Mc7aKke9qgVsEpiwPzMisk3e2JLOkgnMCu6Hfbae6kCpjis4tibuUOJc/+hpnhH9WgnUuGtRiz+KiU4nt7WpDg==';
+        '0h3H6oGkKkfOWoipmPCkWk3e2JLOkgnMCu6Hfbae6kCpjis4tibuUF0U55THbWE2WgnUuGtRiz+KiU4nt7WpDg==';
 
     //1.初始化 im SDK
     RongcloudImPlugin.init(RongAppKey);
@@ -151,6 +152,7 @@ class MyAppState extends State<MyApp> {
           primarySwatch: Colors.blue,
         ),
         home: MyHomePage(),
+        initialRoute: 'root',
       ),
     );
 
@@ -283,6 +285,13 @@ class Collom extends StatelessWidget {
           onPressed: () => Navigator.push(context,
               MaterialPageRoute(builder: (context) => new VideoTestPage())),
           child: Text('视频播放测试'),
+        ),
+        FlatButton(
+          onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => new CustomControllerTest())),
+          child: Text('CustomControllerTest'),
         ),
       ],
     );
