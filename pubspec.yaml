@@ -32,7 +32,8 @@ dependencies:
   chewie: ^0.9.7
   rongcloud_im_plugin: ^0.0.17
   sy_flutter_qiniu_storage: ^0.1.4
-
+  live_push: ^0.0.1
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -16,6 +16,7 @@ import 'package:rongcloud_im_plugin/rongcloud_im_plugin.dart';
 
 import 'common/CommonState.dart';
 import 'custom_page_controller/CustomPageController.dart';
+import 'custom_page_controller/LivePushTest.dart';
 import 'model/User.dart';
 import 'redux/UserReducer.dart';
 import 'test/PopupWindowTest.dart';
@@ -292,6 +293,11 @@ class Collom extends StatelessWidget {
               MaterialPageRoute(
                   builder: (context) => new CustomControllerTest())),
           child: Text('CustomControllerTest'),
+        ),
+        FlatButton(
+          onPressed: () => Navigator.push(
+              context, MaterialPageRoute(builder: (context) => LivePushTest())),
+          child: Text('直播推流测试'),
         ),
       ],
     );

@@ -94,7 +94,14 @@ packages:
       name: image_picker
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.6.0+8"
+    version: "0.6.0+15"
+  live_push:
+    dependency: "direct main"
+    description:
+      name: live_push
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.0.1"
   matcher:
     dependency: transitive
     description:
@@ -150,7 +157,7 @@ packages:
       name: rongcloud_im_plugin
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.0.17"
+    version: "0.0.22"
   screen:
     dependency: transitive
     description:

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import 'CustomPageController.dart';
 
@@ -30,10 +29,6 @@ class FullScreenTestState extends State<FullScreenTest> {
   @override
   Widget build(BuildContext context) {
     controller = CustomControllerProvider.of(context).controller;
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.landscapeLeft,
-      DeviceOrientation.landscapeRight,
-    ]);
 
     return Scaffold(
       floatingActionButton: Column(

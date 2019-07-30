@@ -71,6 +71,8 @@ class CustomControllerTestState extends State<CustomControllerTest> {
     if (isKeptOn) {
       Screen.keepOn(false);
     }
+
+    SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
     SystemChrome.setPreferredOrientations(
         [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   }
